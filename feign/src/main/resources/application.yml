@@ -1,0 +1,19 @@
+server:
+  port: 8040
+  
+spring:
+  application:
+    name: feign
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 127.0.0.1:8848/
+        
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/project
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+

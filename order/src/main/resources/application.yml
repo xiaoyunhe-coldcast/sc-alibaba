@@ -1,0 +1,30 @@
+server:
+  port: 8020
+spring:
+  application:
+    name: order
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848/
+    sentinel:
+      transport:
+      # sentinel服务端地址
+        dashboard: localhost:8858
+      # 取消延迟加载
+      eager: true
+        
+  profiles:
+  active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/project
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000

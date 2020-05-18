@@ -1,0 +1,22 @@
+server:
+  port: 8090
+
+spring :
+  application:
+    name: gateway
+  cloud:
+   gateway:
+      discovery:
+        locator: # 是否和服务注册与发现组件结合，设置为 true 后可以直接使用应用名称调用服务
+            enabled: true
+            lowerCaseServiceId: true
+        routes: # 路由（routes：路由，它由唯一标识（ID）、目标服务地址（uri）、一组断言（predicates）和一组过滤器组成（filters）。filters 不是必需参数。）
+          - id: account
+            uri: lb://account  # 目标服务地址（uri：地址，请求转发后的地址
+            predicates:  # 路由条件（predicates：断言，匹配 HTTP 请求内容）
+            - Path=/product/**       ## 转发地址格式为 uri/archive
+   nacos:
+      discovery:
+        server-addr: localhost:8848/
+  
+   

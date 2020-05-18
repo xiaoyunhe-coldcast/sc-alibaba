@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="order.mapper.OrderMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="order.entity.Order">
+        <id column="ID" property="id" />
+        <result column="ORDER_NO" property="orderNo" />
+        <result column="ACCOUNT_CODE" property="accountCode" />
+        <result column="PRODUCT_CODE" property="productCode" />
+        <result column="COUNT" property="count" />
+        <result column="AMOUNT" property="amount" />
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        ID, ORDER_NO, ACCOUNT_CODE, PRODUCT_CODE, COUNT, AMOUNT
+    </sql>
+
+</mapper>

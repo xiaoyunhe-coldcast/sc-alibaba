@@ -1,0 +1,24 @@
+server:
+  port: 8030
+spring:
+  application:
+    name: product
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848/
+
+  profiles:
+    active: dev
+  datasource:
+    url: jdbc:mysql://localhost:3306/project
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000

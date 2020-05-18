@@ -1,0 +1,24 @@
+server :
+    port : 8010 #指定启动端口号
+  
+spring :
+  application:
+    name: account
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848/
+        
+  datasource:
+    url: jdbc:mysql://localhost:3306/project
+    username: root
+    password: root
+    driver-class-name: com.mysql.jdbc.Driver
+
+feign:
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
