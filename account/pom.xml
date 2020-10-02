@@ -65,5 +65,35 @@
 		<artifactId>mysql-connector-java</artifactId>
 	</dependency>
 </dependencies>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>com.spotify</groupId>
+				<artifactId>docker-maven-plugin</artifactId>
+				<version>1.0.0</version>
+				<configuration>
+					<serverId>my-hub</serverId>
+					<registryUrl>http://${docker.repostory}</registryUrl>
+					<!--必须配置dockerHost标签（除非配置系统环境变量DOCKER_HOST）-->
+					<dockerHost>http://92.168.146.130:2375</dockerHost>
+					<!--Building image 192.168.10.11/demo1-->
+					<imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
+					<!-- 指定 Dockerfile 路径-->
+					<dockerDirectory>${basedir}/</dockerDirectory>
+					<!-- jar包位置-->
+					<resources>
+						<resource>
+							<targetPath>/ROOT</targetPath>
+							<!-- target目录下-->
+							<directory>${project.build.directory}</directory>
+							<!--通过jar包名找到jar包-->
+							<include>${pack-name}</include>
+						</resource>
+					</resources>
+				</configuration>
+			</plugin>
+
+		</plugins>
+	</build>
   
 </project>

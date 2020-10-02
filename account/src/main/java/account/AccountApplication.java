@@ -9,7 +9,7 @@ import org.springframework.context.annotation.ComponentScan;
 @SpringBootApplication
 @EnableDiscoveryClient
 @MapperScan("account.mapper")
-@ComponentScan("account.*")
+@ComponentScan("account")
 public class AccountApplication {
 	
     public static void main(String[] args) {

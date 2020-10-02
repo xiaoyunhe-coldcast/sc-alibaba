@@ -29,8 +29,7 @@ public class UserController {
 	@GetMapping("/user")
 	public Object getUser() {
 		ResultData<String> result = new ResultData<String>();
-		
-		return result.success("hhhh");
+		return ResultData.success("account-user");
 	}
 
 }

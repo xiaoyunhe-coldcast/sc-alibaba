@@ -7,7 +7,7 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @EnableDiscoveryClient
-@ComponentScan(value="feign.*")
+@ComponentScan(basePackages = {"feign"})
 public class feignApplication {
 	
     public static void main(String[] args) {

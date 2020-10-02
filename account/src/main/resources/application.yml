@@ -1,6 +1,6 @@
 server :
     port : 8010 #指定启动端口号
-  
+
 spring :
   application:
     name: account
@@ -21,4 +21,3 @@ feign:
       default:
         connectTimeout: 5000
         readTimeout: 5000
-

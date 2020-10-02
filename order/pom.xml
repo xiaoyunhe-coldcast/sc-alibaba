@@ -17,6 +17,13 @@
 		<version>0.0.1-SNAPSHOT</version>
 	</dependency>
 
+	 <!--feign-->
+	 <dependency>
+		 <groupId>com.chinasoft</groupId>
+		 <artifactId>feign</artifactId>
+		 <version>0.0.1-SNAPSHOT</version>
+	 </dependency>
+
 	<!--Spring Boot-->
 	<dependency>
 		<groupId>org.springframework.boot</groupId>
@@ -65,7 +72,7 @@
 		<groupId>org.springframework.cloud</groupId>
 		<artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
 	</dependency>
-	
-</dependencies>
+
+ </dependencies>
   
 </project>
