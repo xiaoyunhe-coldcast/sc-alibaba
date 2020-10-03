@@ -15,7 +15,7 @@
         <dependency>
             <groupId>com.chinasoft</groupId>
             <artifactId>common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
+            <version>${project-version}</version>
         </dependency>
 
         <!--Spring Boot-->
@@ -53,12 +53,12 @@
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-generator</artifactId>
-            <version>3.1.0</version>
+            <version>${mybatis-plus.version}</version>
         </dependency>
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
-            <version>3.1.0</version>
+            <version>${mybatis-plus.version}</version>
         </dependency>
         <!--database-->
         <dependency>
@@ -72,9 +72,7 @@
         <dependency>
             <groupId>javax.inject</groupId>
             <artifactId>javax.inject</artifactId>
-            <version>1</version>
         </dependency>
     </dependencies>
-
 
 </project>

@@ -70,7 +70,4 @@ public class ResultData<T> {
     	data.setMessage("调用失败");
     	return data;
     }
-    
- 
-    
 }

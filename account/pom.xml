@@ -8,13 +8,18 @@
   </parent>
   
   <artifactId>account</artifactId>
+
+	<properties>
+		<mybatis-plus.version>3.1.0</mybatis-plus.version>
+
+	</properties>
   
   <dependencies>
   <!-- 通用包 -->
 	<dependency>
 		<groupId>com.chinasoft</groupId>
 		<artifactId>common</artifactId>
-		<version>0.0.1-SNAPSHOT</version>
+		<version>${project-version}</version>
 	</dependency>
 
 	<!--Spring Boot-->
@@ -52,12 +57,12 @@
      <dependency>
         <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-generator</artifactId>
-        <version>3.1.0</version>
+		 <version>${mybatis-plus.version}</version>
     </dependency>
     <dependency>
         <groupId>com.baomidou</groupId>
         <artifactId>mybatis-plus-boot-starter</artifactId>
-        <version>3.1.0</version>
+        <version>${mybatis-plus.version}</version>
     </dependency>
     	<!--database-->
  	<dependency>
@@ -67,31 +72,31 @@
 </dependencies>
 	<build>
 		<plugins>
-			<plugin>
-				<groupId>com.spotify</groupId>
-				<artifactId>docker-maven-plugin</artifactId>
-				<version>1.0.0</version>
-				<configuration>
-					<serverId>my-hub</serverId>
-					<registryUrl>http://${docker.repostory}</registryUrl>
-					<!--必须配置dockerHost标签（除非配置系统环境变量DOCKER_HOST）-->
-					<dockerHost>http://92.168.146.130:2375</dockerHost>
-					<!--Building image 192.168.10.11/demo1-->
-					<imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>
-					<!-- 指定 Dockerfile 路径-->
-					<dockerDirectory>${basedir}/</dockerDirectory>
-					<!-- jar包位置-->
-					<resources>
-						<resource>
-							<targetPath>/ROOT</targetPath>
-							<!-- target目录下-->
-							<directory>${project.build.directory}</directory>
-							<!--通过jar包名找到jar包-->
-							<include>${pack-name}</include>
-						</resource>
-					</resources>
-				</configuration>
-			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>com.spotify</groupId>-->
+<!--				<artifactId>docker-maven-plugin</artifactId>-->
+<!--				<version>1.0.0</version>-->
+<!--				<configuration>-->
+<!--					<serverId>my-hub</serverId>-->
+<!--					<registryUrl>http://${docker.repostory}</registryUrl>-->
+<!--					&lt;!&ndash;必须配置dockerHost标签（除非配置系统环境变量DOCKER_HOST）&ndash;&gt;-->
+<!--					<dockerHost>http://92.168.146.130:2375</dockerHost>-->
+<!--					&lt;!&ndash;Building image 192.168.10.11/demo1&ndash;&gt;-->
+<!--					<imageName>${docker.repostory}/${docker.registry.name}/${project.artifactId}:${project.version}</imageName>-->
+<!--					&lt;!&ndash; 指定 Dockerfile 路径&ndash;&gt;-->
+<!--					<dockerDirectory>${basedir}/</dockerDirectory>-->
+<!--					&lt;!&ndash; jar包位置&ndash;&gt;-->
+<!--					<resources>-->
+<!--						<resource>-->
+<!--							<targetPath>/ROOT</targetPath>-->
+<!--							&lt;!&ndash; target目录下&ndash;&gt;-->
+<!--							<directory>${project.build.directory}</directory>-->
+<!--							&lt;!&ndash;通过jar包名找到jar包&ndash;&gt;-->
+<!--							<include>${pack-name}</include>-->
+<!--						</resource>-->
+<!--					</resources>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 
 		</plugins>
 	</build>
