@@ -1,13 +1,11 @@
 package order.controller;
 
 
+import com.alibaba.csp.sentinel.slots.block.BlockException;
 import feign.AccountFeign;
+import order.service.Impl.OrderQueryService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.alibaba.csp.sentinel.annotation.SentinelResource;
 
@@ -18,7 +16,7 @@ import javax.inject.Inject;
 
 /**
  * <p>
- *  前端控制器
+ * 前端控制器
  * </p>
  *
  * @author xyh
@@ -28,19 +26,35 @@ import javax.inject.Inject;
 @RequestMapping("/order")
 public class OrderController {
 
-	@Inject
-	AccountFeign accountFeign;
+    @Inject
+    AccountFeign accountFeign;
 
-	@GetMapping("/get")
-	@SentinelResource(value = "getByCode")
-	public Object getOrder(@RequestParam(value = "accountCode") int accountCode) {
-		ResultData<String> result = new ResultData<String>();
-		return ResultData.success(accountCode);
-	}
+    @Autowired
+    OrderQueryService orderQueryService;
 
-	@GetMapping("/feign")
-	public Object testFeign(){
-		return accountFeign.get();
-	}
-	
+    @GetMapping("/get")
+    @SentinelResource(value = "getByCode")
+    public Object getOrder(@RequestParam(value = "accountCode") int accountCode) {
+        ResultData<String> result = new ResultData<String>();
+        return ResultData.success(accountCode);
+    }
+
+    @GetMapping("/feign")
+    public Object testFeign() {
+        return accountFeign.get();
+    }
+
+
+    /**
+     * 限流实现方式二: 注解定义资源
+     *
+     * @param orderId
+     * @return
+     */
+    @RequestMapping("/getOrder2")
+    @ResponseBody
+    public String queryOrder3(@RequestParam("orderId") String orderId) {
+        return orderQueryService.queryOrderInfo2(orderId);
+    }
+
 }
