@@ -14,7 +14,7 @@
         <spring-cloud.version>Greenwich.SR2</spring-cloud.version>
         <springcloud-alibaba.version>0.9.0.RELEASE</springcloud-alibaba.version>
         <mybatis-plus.version>3.1.1</mybatis-plus.version>
-        <mysql.version>5.1.47</mysql.version>
+        <mysql.version>8.0.16</mysql.version>
         <javax.inject.version>1</javax.inject.version>
         <encoding>UTF-8</encoding>
         <maven.compiler.source>1.8</maven.compiler.source>
